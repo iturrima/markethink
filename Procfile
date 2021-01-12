@@ -1,0 +1,1 @@
+web: gunicorn markethink.wsgi --log-file -
