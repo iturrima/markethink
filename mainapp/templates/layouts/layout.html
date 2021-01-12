@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+================================================== -->
+  <meta charset="utf-8">
+
+{% load static %}
+
+  <!-- CSS
+================================================== -->
+  <!-- Template styles-->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+  <div class="body-inner">
+
+<!-- Header start -->
+<header id="header" class="header-two">
+  <div class="site-navigation">
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+              <nav class="navbar navbar-expand-lg navbar-light p-0">
+                
+                <div class="logo">
+                    <a class="d-block" href="#">
+                      <img src="{% static 'images/logo.png' %}" alt="">
+                    </a>
+                </div><!-- logo end -->
+                <ul>
+                  <li>
+                    <a href="">home</a>
+                  </li>
+                </ul>
+
+                <ul class="nav navbar-nav ml-auto align-items-center">
+                  {% for page in pages  %}  
+                  <li class="nav-item">
+                      <a href="{% url 'page' page.2 %}" class="nav-link">{{ page.1 }}</a>
+                  </li>        
+                  {% endfor %}
+                </ul>
+            
+                <div class="collapse navbar-collapse">
+                    {% comment %} <ul class="nav navbar-nav ml-auto align-items-center">
+                      {% for page in pages  %}  
+                      <li class="nav-item">
+                          <a href="{% url 'page' page.2 %}" class="nav-link">{{ page.1 }}</a>
+                      </li>        
+                      {% endfor %}
+                    </ul> {% endcomment %}
+                </div>
+              </nav>
+          </div>
+          <!--/ Col end -->
+        </div>
+        <!--/ Row end -->
+    </div>
+    <!--/ Container end -->
+
+  </div>
+  <!--/ Navigation end -->
+</header>
+<!--/ Header end -->
+
+<section class="content">
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+          <h3 class="column-title">Contenido</h3>
+          {% block content  %}{% endblock %}
+          <!--/ Testimonial carousel end-->
+        </div><!-- Col end -->
+    </div>
+    <!--/ Content row end -->
+  </div>
+  <!--/ Container end -->
+</section><!-- Content end -->
+
+  <footer id="footer" class="footer bg-overlay">
+    <div class="footer-main">
+        <div class="container">
+        </div><!-- Container end -->
+    </div><!-- Footer main end -->
+
+
+  </footer><!-- Footer end -->
+
+
+  </div><!-- Body inner end -->
+</body>
+
+</html>
